@@ -1,4 +1,4 @@
-// Every test file gets its own TaskCue state folder, so no test can touch a real ~/.taskcue-canvas.
+// Every test file gets its own Taskcue state folder, so no test can touch a real ~/.taskcue-canvas.
 import { mkdtempSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';

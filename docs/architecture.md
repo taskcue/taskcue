@@ -1,6 +1,6 @@
 # Architecture
 
-TaskCue is a small Node server and a React page. The server runs the agents' own programs; the page draws the board.
+Taskcue is a small Node server and a React page. The server runs the agents' own programs; the page draws the board.
 
 ```
 server/
@@ -36,7 +36,7 @@ A live session (`LiveSession`) sends messages, interrupts a turn, answers approv
 `SessionSink`: items, the streaming draft, its native id and model, busy or idle, approvals raised and withdrawn, and
 its exit.
 
-Everything an adapter reports is in TaskCue's own shapes (`shared/types.ts`): an `Item` is a user message, an
+Everything an adapter reports is in Taskcue's own shapes (`shared/types.ts`): an `Item` is a user message, an
 assistant message, thinking, a tool call (with its summary, output and status) or a notice.
 
 ## One conversation, two paths
@@ -48,7 +48,7 @@ against captured output.
 
 ## State
 
-TaskCue keeps very little: `~/.taskcue-canvas/sessions.json` (which sessions are on the board, their folder, agent and
+Taskcue keeps very little: `~/.taskcue-canvas/sessions.json` (which sessions are on the board, their folder, agent and
 native id), `settings.json` (the folders you added) and `token`. Conversations stay in each agent's own history. Nothing
 runs after the server stops; every session can be continued, because both agents resume by id.
 
@@ -63,5 +63,5 @@ The server can make agents run commands, so its API is treated like a shell (`se
 - Every API call carries the token in `~/.taskcue-canvas/token` (mode 600), which keeps out other programs and users.
 
 Child processes get a clean environment (`childEnv` in `server/agents/process.ts`): variables a parent agent session
-sets for its own children are removed, so starting TaskCue from inside a Claude Code session doesn't make every
+sets for its own children are removed, so starting Taskcue from inside a Claude Code session doesn't make every
 session it starts a child of that one.

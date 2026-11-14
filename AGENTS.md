@@ -1,6 +1,6 @@
-# Working on TaskCue
+# Working on Taskcue
 
-TaskCue is a local web app that drives the coding agents installed on a computer (Claude Code, Codex) and shows
+Taskcue is a local web app that drives the coding agents installed on a computer (Claude Code, Codex) and shows
 their sessions on one board. Start with [docs/architecture.md](docs/architecture.md).
 
 - `pnpm dev` runs the server with the page hot-reloading on http://127.0.0.1:4880 (the address it prints carries the token).

@@ -16,7 +16,7 @@ const out = lines.filter((e) => e.dir === 'out').map((e) => e.msg);
 const CWD = '/tmp/ay-cap-codex';
 
 describe('codexItem', () => {
-  it('turns each completed item into TaskCue’s own', () => {
+  it('turns each completed item into Taskcue’s own', () => {
     const items = out.filter((m) => m.method === 'item/completed').map((m) => codexItem(m.params.item, CWD)).filter(Boolean) as Item[];
     expect(items.map((i) => i.kind)).toEqual(['user', 'assistant', 'tool', 'tool', 'assistant']);
     expect(items[2]).toMatchObject({ name: 'Edit', summary: 'hello.txt', status: 'done' });

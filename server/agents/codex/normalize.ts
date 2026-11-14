@@ -1,4 +1,4 @@
-// Codex's thread items → TaskCue's items. Live (item/started, item/completed) and history
+// Codex's thread items → Taskcue's items. Live (item/started, item/completed) and history
 // (thread/read) carry the same items with the same ids, so both paths share this one function.
 
 import type { Item } from '../../../shared/types.ts';

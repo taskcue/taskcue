@@ -1,4 +1,4 @@
-// TaskCue's own state: a folder of small JSON files, never shared with the agents.
+// Taskcue's own state: a folder of small JSON files, never shared with the agents.
 //   TASKCUE_CANVAS_DATA_DIR (default ~/.taskcue-canvas): settings.json, sessions.json, token
 //   TASKCUE_CANVAS_PORT (default 4880)
 
@@ -29,7 +29,7 @@ export function writeJson(name: string, value: unknown): void {
 }
 
 /**
- * The secret every API call carries. TaskCue can run agents that run shell commands, so other
+ * The secret every API call carries. Taskcue can run agents that run shell commands, so other
  * programs and web pages on this computer must not be able to drive it: the guard checks this
  * token on top of the Host, Origin and Fetch-Metadata checks (server/guard.ts).
  */

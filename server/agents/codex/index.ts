@@ -1,6 +1,6 @@
 // OpenAI's Codex, driven through `codex app-server` (JSON-RPC over stdio): the same binary,
 // ChatGPT or API-key sign-in, config.toml, AGENTS.md and MCP servers as the Codex CLI.
-// TaskCue never reads Codex's credentials.
+// Taskcue never reads Codex's credentials.
 //
 // Protocol (codex-cli 0.167, captured in test/fixtures/codex-app-server.jsonl):
 //   initialize → initialized → thread/start | thread/resume → turn/start (turn/steer while one runs)

@@ -1,6 +1,6 @@
-// The sessions on the board: the ones TaskCue started (kept in sessions.json), and the recent
+// The sessions on the board: the ones Taskcue started (kept in sessions.json), and the recent
 // ones each agent keeps in its own history (found, not copied). An agent's own history is the
-// record of a conversation; TaskCue only keeps what it needs to draw the board.
+// record of a conversation; Taskcue only keeps what it needs to draw the board.
 
 import { randomUUID } from 'node:crypto';
 import { existsSync } from 'node:fs';
@@ -225,7 +225,7 @@ export class Sessions extends EventEmitter {
     await live.send(text);
   }
 
-  /** Brings a conversation found in an agent's history onto TaskCue's own list, to continue it here. */
+  /** Brings a conversation found in an agent's history onto Taskcue's own list, to continue it here. */
   private adopt(id: string): void {
     const s = this.external.get(id);
     if (!s) throw new Error('No such session');

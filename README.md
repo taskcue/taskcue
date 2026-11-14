@@ -1,11 +1,11 @@
-# TaskCue
+# Taskcue
 
 **A visual canvas for the coding agents already on your computer.** Claude Code and Codex sessions side by side on one
 board, grouped by project. See what each one is doing, answer what it asks, and talk to any of them from one place.
 
-![TaskCue: projects as frames, each session a card, a Claude Code session asking before it edits a file](docs/images/hero.png)
+![Taskcue: projects as frames, each session a card, a Claude Code session asking before it edits a file](docs/images/hero.png)
 
-TaskCue doesn't have its own model and doesn't sell AI usage. It drives the agents you have installed: the real `claude`
+Taskcue doesn't have its own model and doesn't sell AI usage. It drives the agents you have installed: the real `claude`
 and `codex` programs, with your own sign-in, settings, memory files, skills and MCP servers. A session started here is
 the same session you'd get in a terminal, and you can continue it there.
 
@@ -51,7 +51,7 @@ For a production build: `pnpm build && pnpm start`.
 | Variable | Default | What it does |
 |---|---|---|
 | `TASKCUE_CANVAS_PORT` | `4880` | The port the server listens on (always `127.0.0.1`). |
-| `TASKCUE_CANVAS_DATA_DIR` | `~/.taskcue-canvas` | TaskCue's own state: settings, the session list, the token. |
+| `TASKCUE_CANVAS_DATA_DIR` | `~/.taskcue-canvas` | Taskcue's own state: settings, the session list, the token. |
 | `TASKCUE_CANVAS_HISTORY` | on | `0` keeps sessions from the agents' own history off the board. |
 | `TASKCUE_CANVAS_CLAUDE_BIN` | found on `PATH` | The `claude` binary to use. |
 | `TASKCUE_CANVAS_CODEX_BIN` | found on `PATH` | The `codex` binary to use. |
@@ -78,9 +78,9 @@ browser (React, React Flow)  ──HTTP + SSE──▶  server (Node, no framewo
 ```
 
 Each agent sits behind one small interface (`server/agents/types.ts`): start or resume a session, send a message,
-interrupt, answer an approval, read history. An adapter translates its agent's own events into TaskCue's (messages,
+interrupt, answer an approval, read history. An adapter translates its agent's own events into Taskcue's (messages,
 tool calls, approvals) and the rest of the app never sees an agent's wire format. Conversations stay where each agent
-keeps them (`~/.claude/projects`, `~/.codex/sessions`); TaskCue only remembers which sessions are on the board.
+keeps them (`~/.claude/projects`, `~/.codex/sessions`); Taskcue only remembers which sessions are on the board.
 
 More in [docs/architecture.md](docs/architecture.md). Adding another agent (Gemini CLI, OpenCode, anything that speaks
 the [Agent Client Protocol](https://agentclientprotocol.com)) is one adapter:
@@ -88,7 +88,7 @@ the [Agent Client Protocol](https://agentclientprotocol.com)) is one adapter:
 
 ## Your accounts
 
-TaskCue runs each agent's own, unmodified program, and you sign in to it the agent's own way. TaskCue never reads,
+Taskcue runs each agent's own, unmodified program, and you sign in to it the agent's own way. Taskcue never reads,
 stores or forwards your credentials, and your usage is billed to your own account under your agreement with that
 provider. It is not affiliated with or endorsed by Anthropic or OpenAI; "Claude Code" and "Codex" are their trademarks.
 
@@ -106,5 +106,5 @@ Issues and ideas are very welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) before
 
 ## License
 
-[AGPL-3.0](LICENSE). You can use, change and share TaskCue freely; if you run a changed version as a service for
+[AGPL-3.0](LICENSE). You can use, change and share Taskcue freely; if you run a changed version as a service for
 others, you share your changes under the same license.

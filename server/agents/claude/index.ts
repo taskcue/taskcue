@@ -1,6 +1,6 @@
 // Claude Code, driven through the installed `claude` binary's own stream-json channel: the same
 // binary, login, settings, CLAUDE.md memory, skills, hooks and MCP servers as a terminal session.
-// TaskCue never modifies the binary, never reads its credentials, and never uses the Agent SDK.
+// Taskcue never modifies the binary, never reads its credentials, and never uses the Agent SDK.
 //
 // Protocol (Claude Code 2.1.x, captured in test/fixtures/claude-stream.jsonl):
 //   stdin:  {type:"user", uuid, message:{role:"user", content:[…]}, …}
@@ -103,7 +103,7 @@ class ClaudeSession implements LiveSession {
     this.approvals.delete(approvalId);
     const response =
       decision === 'deny'
-        ? { behavior: 'deny', message: 'The person declined this in TaskCue.' }
+        ? { behavior: 'deny', message: 'The person declined this in Taskcue.' }
         : {
             behavior: 'allow',
             updatedInput: p.input,
@@ -169,8 +169,8 @@ class ClaudeSession implements LiveSession {
   private onControlRequest(m: any): void {
     const r = m.request ?? {};
     if (r.subtype !== 'can_use_tool') {
-      // Hook callbacks, SDK MCP servers and elicitations are host features TaskCue does not provide.
-      this.write({ type: 'control_response', response: { subtype: 'error', request_id: m.request_id, error: `TaskCue does not handle ${r.subtype}` } });
+      // Hook callbacks, SDK MCP servers and elicitations are host features Taskcue does not provide.
+      this.write({ type: 'control_response', response: { subtype: 'error', request_id: m.request_id, error: `Taskcue does not handle ${r.subtype}` } });
       return;
     }
     const suggestions = Array.isArray(r.permission_suggestions) ? r.permission_suggestions : [];

@@ -1,5 +1,5 @@
 // Claude Code's own history: one JSON-lines transcript per session under
-// <config dir>/projects/<folder slug>/<session id>.jsonl. Read only; TaskCue never writes there.
+// <config dir>/projects/<folder slug>/<session id>.jsonl. Read only; Taskcue never writes there.
 
 import { createReadStream } from 'node:fs';
 import { open, readdir, stat } from 'node:fs/promises';

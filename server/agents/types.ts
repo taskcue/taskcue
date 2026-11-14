@@ -1,4 +1,4 @@
-// The one interface between TaskCue and an agent. Everything an agent knows about its own
+// The one interface between Taskcue and an agent. Everything an agent knows about its own
 // binary, protocol and history files lives behind it (server/agents/<agent>/); the rest of the
 // server and the page only see shared/types.ts. docs/adding-an-agent.md walks through a new one.
 
@@ -12,7 +12,7 @@ export interface StartOptions {
   resumeId?: string | null;
 }
 
-/** What an adapter's live session reports. TaskCue keeps state and fans it out to the page. */
+/** What an adapter's live session reports. Taskcue keeps state and fans it out to the page. */
 export interface SessionSink {
   /** A new or updated item. An item with an id already shown replaces it (a tool's result arriving). */
   item(item: Item): void;
@@ -24,7 +24,7 @@ export interface SessionSink {
   model(model: string): void;
   /** Busy with a turn, or done with it. */
   working(busy: boolean): void;
-  /** The agent asks before acting. TaskCue calls back `answer` with the same id. */
+  /** The agent asks before acting. Taskcue calls back `answer` with the same id. */
   approval(a: { id: string; title: string; detail: string; canAllowForSession: boolean }): void;
   /** An approval the agent withdrew or that was answered elsewhere. */
   approvalGone(id: string): void;

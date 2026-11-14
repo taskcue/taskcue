@@ -1,6 +1,6 @@
 # Adding an agent
 
-An agent is one adapter in `server/agents/<agent>/` plus one line in `server/agents/index.ts`. The rest of TaskCue
+An agent is one adapter in `server/agents/<agent>/` plus one line in `server/agents/index.ts`. The rest of Taskcue
 (the board, the panel, approvals, history) works for it unchanged.
 
 ## 1. Capture the real thing first

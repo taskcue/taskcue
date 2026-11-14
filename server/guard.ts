@@ -1,4 +1,4 @@
-// Who may call the API. TaskCue drives agents that edit files and run commands, so its API is
+// Who may call the API. Taskcue drives agents that edit files and run commands, so its API is
 // treated like a shell: only this computer's own browser tab, holding the token, may use it.
 //
 //   - The server listens on 127.0.0.1 only.

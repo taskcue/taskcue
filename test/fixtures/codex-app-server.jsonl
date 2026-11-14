@@ -1,4 +1,4 @@
-{"dir":"in","msg":{"id":1,"method":"initialize","params":{"clientInfo":{"name":"taskcue-canvas","title":"TaskCue","version":"0.1.0"},"capabilities":null}}}
+{"dir":"in","msg":{"id":1,"method":"initialize","params":{"clientInfo":{"name":"taskcue-canvas","title":"Taskcue","version":"0.1.0"},"capabilities":null}}}
 {"dir":"out","msg":{"id":1,"result":{}}}
 {"dir":"in","msg":{"method":"initialized"}}
 {"dir":"in","msg":{"id":2,"method":"thread/start","params":{"cwd":"/tmp/ay-cap-codex","approvalPolicy":"untrusted","sandbox":"workspace-write","ephemeral":false}}}

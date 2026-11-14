@@ -1,7 +1,7 @@
 // What the server and the page share. The page never sees an agent's own wire format: each adapter
 // (server/agents/<agent>/) translates its agent's events into these types, and nothing else.
 
-/** An agent TaskCue can drive. New agents add an id here and an adapter in server/agents/. */
+/** An agent Taskcue can drive. New agents add an id here and an adapter in server/agents/. */
 export type AgentId = 'claude' | 'codex';
 
 /** How much a session may do without asking. Each adapter maps these onto its agent's own settings. */
@@ -16,7 +16,7 @@ export const PERMISSION_MODES: { id: PermissionMode; label: string; hint: string
 export interface AgentInfo {
   id: AgentId;
   name: string;
-  /** The binary TaskCue found, or null when the agent isn't installed. */
+  /** The binary Taskcue found, or null when the agent isn't installed. */
   path: string | null;
   version: string | null;
   /** Where to get it when it isn't installed. */
@@ -25,7 +25,7 @@ export interface AgentInfo {
   models: { id: string; label: string }[];
 }
 
-/** One entry in a session's conversation, already in TaskCue's own shape. */
+/** One entry in a session's conversation, already in Taskcue's own shape. */
 export type Item =
   | { id: string; kind: 'user'; text: string; at?: number }
   | { id: string; kind: 'assistant'; text: string; at?: number }
@@ -70,7 +70,7 @@ export interface SessionSummary {
   model: string | null;
   permission: PermissionMode;
   state: SessionState;
-  /** True while TaskCue runs the agent for it; false for history only. */
+  /** True while Taskcue runs the agent for it; false for history only. */
   live: boolean;
   createdAt: number;
   updatedAt: number;

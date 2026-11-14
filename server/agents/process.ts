@@ -7,7 +7,7 @@ import { delimiter, join } from 'node:path';
 import type { Readable } from 'node:stream';
 
 /**
- * Variables a parent agent session sets for its own children. When TaskCue is started from
+ * Variables a parent agent session sets for its own children. When Taskcue is started from
  * inside a Claude Code session (a terminal tab, an editor panel, a tool call), passing them on
  * would make every session it starts believe it is a child of that one.
  */
@@ -29,7 +29,7 @@ const PARENT_SESSION_VARS = [
   'CODEX_SANDBOX_NETWORK_DISABLED',
 ];
 
-/** TaskCue's own settings, which belong to TaskCue and not to the projects its sessions work in. */
+/** Taskcue's own settings, which belong to Taskcue and not to the projects its sessions work in. */
 const OWN_VARS = ['PORT', 'NODE_ENV', 'ELECTRON_RUN_AS_NODE'];
 const OWN_PREFIX = 'TASKCUE_CANVAS_';
 
