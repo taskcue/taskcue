@@ -46,12 +46,12 @@ describe('bareCommand', () => {
 
 describe('a live session, replayed', () => {
   afterEach(() => {
-    delete process.env.TASKCUE_CANVAS_CODEX_BIN;
+    delete process.env.TASKCUE_CODEX_BIN;
     delete process.env.REPLAY_FIXTURE;
   });
 
   it('starts a thread, streams the turn, and raises both approvals', async () => {
-    process.env.TASKCUE_CANVAS_CODEX_BIN = join(here, 'fake', 'replay.mjs');
+    process.env.TASKCUE_CODEX_BIN = join(here, 'fake', 'replay.mjs');
     process.env.REPLAY_FIXTURE = FIXTURE;
     mkdirSync(CWD, { recursive: true });
     const items = new Map<string, Item>();

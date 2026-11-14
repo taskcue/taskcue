@@ -7,7 +7,7 @@ import { Close } from './bits.tsx';
 import { shortPath } from './format.ts';
 import { loadAgents, useStore } from './store.ts';
 
-const LAST = 'taskcue-canvas:last-start';
+const LAST = 'taskcue:last-start';
 
 interface Last {
   agent: AgentId;

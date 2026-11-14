@@ -26,7 +26,7 @@ const MODES: Record<PermissionMode, string> = {
 };
 
 export function claudeBinary(): string | null {
-  return findBinary([process.env.TASKCUE_CANVAS_CLAUDE_BIN, 'claude', join(homedir(), '.claude', 'local', 'claude')]);
+  return findBinary([process.env.TASKCUE_CLAUDE_BIN, 'claude', join(homedir(), '.claude', 'local', 'claude')]);
 }
 
 export function claudeArgs(o: StartOptions & { sessionId: string }): string[] {

@@ -16,7 +16,7 @@ machine details go (they are never needed by an adapter). Keep the agent's own J
 
 Implement `AgentAdapter` from `server/agents/types.ts`:
 
-- `detect()`: find the binary with `findBinary([process.env.TASKCUE_CANVAS_<AGENT>_BIN, '<name>', …])` and read its
+- `detect()`: find the binary with `findBinary([process.env.TASKCUE_<AGENT>_BIN, '<name>', …])` and read its
   version with `versionOf`.
 - `start(options, sink)`: spawn it with `childEnv()`, map `options.permission` (`ask`, `auto-edit`, `full`) onto the
   agent's own settings, and report through `sink`: `item` for each message or tool call, `draft` for streaming text,
@@ -37,7 +37,7 @@ Add the id to `AgentId` in `shared/types.ts`, the adapter to `adapters` in `serv
 ## 4. Test it against the capture
 
 `test/fake/replay.mjs` stands in for any agent's binary: it plays back a capture, writing what the agent wrote and
-waiting where the client wrote. Point `TASKCUE_CANVAS_<AGENT>_BIN` at it and `REPLAY_FIXTURE` at your capture, then drive
+waiting where the client wrote. Point `TASKCUE_<AGENT>_BIN` at it and `REPLAY_FIXTURE` at your capture, then drive
 your adapter the way `test/codex.test.ts` does. Also test that `history` gives the same item ids as the live path.
 
 ## Rules every adapter keeps

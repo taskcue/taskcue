@@ -6,7 +6,7 @@
 //   - Origin, when sent, must be this server (stops other websites).
 //   - Sec-Fetch-Site, when sent, must be same-origin or none (stops <img>/<form> requests from other sites).
 //   - Writes must be JSON (forces a CORS preflight no other site can pass).
-//   - Every /api call carries the token from ~/.taskcue-canvas/token (stops other programs and users on this computer).
+//   - Every /api call carries the token from ~/.taskcue/token (stops other programs and users on this computer).
 
 import { timingSafeEqual } from 'node:crypto';
 import type { IncomingMessage } from 'node:http';

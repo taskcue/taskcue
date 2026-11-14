@@ -1,14 +1,14 @@
 // Taskcue's own state: a folder of small JSON files, never shared with the agents.
-//   TASKCUE_CANVAS_DATA_DIR (default ~/.taskcue-canvas): settings.json, sessions.json, token
-//   TASKCUE_CANVAS_PORT (default 4880)
+//   TASKCUE_DATA_DIR (default ~/.taskcue): settings.json, sessions.json, token
+//   TASKCUE_PORT (default 4880)
 
 import { randomBytes } from 'node:crypto';
 import { chmodSync, existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
 
-export const dataDir = process.env.TASKCUE_CANVAS_DATA_DIR || join(homedir(), '.taskcue-canvas');
-export const port = Number(process.env.TASKCUE_CANVAS_PORT || 4880);
+export const dataDir = process.env.TASKCUE_DATA_DIR || join(homedir(), '.taskcue');
+export const port = Number(process.env.TASKCUE_PORT || 4880);
 
 mkdirSync(dataDir, { recursive: true, mode: 0o700 });
 

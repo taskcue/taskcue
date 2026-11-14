@@ -5,7 +5,7 @@ their sessions on one board. Start with [docs/architecture.md](docs/architecture
 
 - `pnpm dev` runs the server with the page hot-reloading on http://127.0.0.1:4880 (the address it prints carries the token).
 - `pnpm typecheck`, `pnpm test` and `pnpm build` must pass; CI runs all three.
-- To try it without touching your own state: `TASKCUE_CANVAS_PORT=4890 TASKCUE_CANVAS_DATA_DIR=/tmp/ay TASKCUE_CANVAS_HISTORY=0 pnpm dev`.
+- To try it without touching your own state: `TASKCUE_PORT=4890 TASKCUE_DATA_DIR=/tmp/ay TASKCUE_HISTORY=0 pnpm dev`.
 
 Rules:
 - All knowledge of an agent's binary, protocol and files lives in `server/agents/<agent>/`. The page sees only `shared/types.ts`.

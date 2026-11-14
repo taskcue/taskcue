@@ -57,7 +57,7 @@ export class CodexRpc {
 
   /** The handshake every client makes before anything else. */
   async initialize(version: string): Promise<void> {
-    await this.request('initialize', { clientInfo: { name: 'taskcue-canvas', title: 'Taskcue', version }, capabilities: null });
+    await this.request('initialize', { clientInfo: { name: 'taskcue', title: 'Taskcue', version }, capabilities: null });
     this.notify('initialized');
   }
 

@@ -6,7 +6,7 @@ Taskcue is a small Node server and a React page. The server runs the agents' own
 server/
   index.ts            HTTP routes, the event stream (SSE), serving the page
   guard.ts            who may call the API (Host, Origin, Fetch-Metadata, JSON writes, token)
-  config.ts           ~/.taskcue-canvas: settings, the session list, the token
+  config.ts           ~/.taskcue: settings, the session list, the token
   projects.ts         project folders: added by hand, plus wherever the agents worked
   sessions.ts         the board's sessions: live ones, stored ones, ones found in agents' history
   agents/
@@ -48,7 +48,7 @@ against captured output.
 
 ## State
 
-Taskcue keeps very little: `~/.taskcue-canvas/sessions.json` (which sessions are on the board, their folder, agent and
+Taskcue keeps very little: `~/.taskcue/sessions.json` (which sessions are on the board, their folder, agent and
 native id), `settings.json` (the folders you added) and `token`. Conversations stay in each agent's own history. Nothing
 runs after the server stops; every session can be continued, because both agents resume by id.
 
@@ -60,7 +60,7 @@ The server can make agents run commands, so its API is treated like a shell (`se
 - The `Host` header must be `localhost` or `127.0.0.1` on its port, which stops DNS-rebinding attacks.
 - `Origin` and `Sec-Fetch-Site`, when the browser sends them, must be this server: other websites are refused.
 - Writes must be `application/json`, which forces a CORS preflight no other site can pass.
-- Every API call carries the token in `~/.taskcue-canvas/token` (mode 600), which keeps out other programs and users.
+- Every API call carries the token in `~/.taskcue/token` (mode 600), which keeps out other programs and users.
 
 Child processes get a clean environment (`childEnv` in `server/agents/process.ts`): variables a parent agent session
 sets for its own children are removed, so starting Taskcue from inside a Claude Code session doesn't make every

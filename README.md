@@ -36,8 +36,8 @@ the same session you'd get in a terminal, and you can continue it there.
 ## Quick start
 
 ```bash
-git clone https://github.com/TomMaxon/taskcue-canvas.git
-cd taskcue-canvas
+git clone https://github.com/taskcue/taskcue.git
+cd taskcue
 pnpm install
 pnpm dev
 ```
@@ -50,11 +50,11 @@ For a production build: `pnpm build && pnpm start`.
 
 | Variable | Default | What it does |
 |---|---|---|
-| `TASKCUE_CANVAS_PORT` | `4880` | The port the server listens on (always `127.0.0.1`). |
-| `TASKCUE_CANVAS_DATA_DIR` | `~/.taskcue-canvas` | Taskcue's own state: settings, the session list, the token. |
-| `TASKCUE_CANVAS_HISTORY` | on | `0` keeps sessions from the agents' own history off the board. |
-| `TASKCUE_CANVAS_CLAUDE_BIN` | found on `PATH` | The `claude` binary to use. |
-| `TASKCUE_CANVAS_CODEX_BIN` | found on `PATH` | The `codex` binary to use. |
+| `TASKCUE_PORT` | `4880` | The port the server listens on (always `127.0.0.1`). |
+| `TASKCUE_DATA_DIR` | `~/.taskcue` | Taskcue's own state: settings, the session list, the token. |
+| `TASKCUE_HISTORY` | on | `0` keeps sessions from the agents' own history off the board. |
+| `TASKCUE_CLAUDE_BIN` | found on `PATH` | The `claude` binary to use. |
+| `TASKCUE_CODEX_BIN` | found on `PATH` | The `codex` binary to use. |
 
 ## Permissions
 
@@ -94,6 +94,7 @@ provider. It is not affiliated with or endorsed by Anthropic or OpenAI; "Claude 
 
 ## Roadmap
 
+- What needs you: one page with every session waiting on you, across agents and projects
 - More agents through the [Agent Client Protocol](https://agentclientprotocol.com): Gemini CLI, OpenCode, Goose and others
 - Continue a conversation in another agent, with a hand-off summary
 - Arrange cards freely and keep the layout

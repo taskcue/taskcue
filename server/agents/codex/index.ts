@@ -25,7 +25,7 @@ const POLICIES: Record<PermissionMode, { approvalPolicy: string; sandbox: string
 
 export function codexBinary(): string | null {
   return findBinary([
-    process.env.TASKCUE_CANVAS_CODEX_BIN,
+    process.env.TASKCUE_CODEX_BIN,
     'codex',
     // The ChatGPT desktop app for macOS ships the Codex CLI inside it.
     '/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex',

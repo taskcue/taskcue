@@ -3,7 +3,7 @@
 
 import type { AgentInfo, ApprovalDecision, Item, PermissionMode, ServerEvent, SessionSummary, StartRequest } from '../shared/types.ts';
 
-const KEY = 'taskcue-canvas:token';
+const KEY = 'taskcue:token';
 
 function readToken(): string | null {
   const hash = new URLSearchParams(location.hash.slice(1));

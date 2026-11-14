@@ -29,14 +29,16 @@ const PARENT_SESSION_VARS = [
   'CODEX_SANDBOX_NETWORK_DISABLED',
 ];
 
-/** Taskcue's own settings, which belong to Taskcue and not to the projects its sessions work in. */
-const OWN_VARS = ['PORT', 'NODE_ENV', 'ELECTRON_RUN_AS_NODE'];
-const OWN_PREFIX = 'TASKCUE_CANVAS_';
+/**
+ * Taskcue's own settings, which belong to Taskcue and not to the projects its sessions work in. Only
+ * these exact names: other programs (the TaskCue app among them) have TASKCUE_* variables of their
+ * own that a session working on them needs.
+ */
+const OWN_VARS = ['PORT', 'NODE_ENV', 'ELECTRON_RUN_AS_NODE', 'TASKCUE_PORT', 'TASKCUE_DATA_DIR', 'TASKCUE_HISTORY', 'TASKCUE_CLAUDE_BIN', 'TASKCUE_CODEX_BIN'];
 
 export function childEnv(base: NodeJS.ProcessEnv = process.env): NodeJS.ProcessEnv {
   const env = { ...base };
   for (const k of [...PARENT_SESSION_VARS, ...OWN_VARS]) delete env[k];
-  for (const k of Object.keys(env)) if (k.startsWith(OWN_PREFIX)) delete env[k];
   return env;
 }
 

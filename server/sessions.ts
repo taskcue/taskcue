@@ -75,11 +75,11 @@ export class Sessions extends EventEmitter {
 
   /**
    * Reads each agent's recent history. Called at start and every half minute. Skipped with
-   * TASKCUE_CANVAS_HISTORY=0. Sessions that ran inside a hidden folder (a path segment starting with
+   * TASKCUE_HISTORY=0. Sessions that ran inside a hidden folder (a path segment starting with
    * '.', where tools keep their own working copies) only show when that folder is an added project.
    */
   async refreshExternal(added: string[] = []): Promise<void> {
-    if (process.env.TASKCUE_CANVAS_HISTORY === '0') return;
+    if (process.env.TASKCUE_HISTORY === '0') return;
     const found = new Map<string, SessionSummary>();
     for (const a of Object.values(adapters)) {
       let recent: Awaited<ReturnType<typeof a.recent>> = [];

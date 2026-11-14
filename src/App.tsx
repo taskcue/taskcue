@@ -14,7 +14,7 @@ function NoToken() {
       <p>Open Taskcue from the address it printed when it started, the one that ends in <code>#token=…</code>.</p>
       <p className="muted">
         The token keeps other websites and programs on this computer from driving your agents. It is in
-        <code> ~/.taskcue-canvas/token</code>.
+        <code> ~/.taskcue/token</code>.
       </p>
     </div>
   );

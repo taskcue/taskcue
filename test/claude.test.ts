@@ -36,7 +36,7 @@ describe('ClaudeNormalizer', () => {
 });
 
 describe('transcripts', () => {
-  const config = mkdtempSync(join(tmpdir(), 'taskcue-canvas-claude-'));
+  const config = mkdtempSync(join(tmpdir(), 'taskcue-claude-'));
   process.env.CLAUDE_CONFIG_DIR = config;
   mkdirSync(join(config, 'projects', folderSlug(CWD)), { recursive: true });
   copyFileSync(fixture('claude-transcript.jsonl'), join(config, 'projects', folderSlug(CWD), `${SESSION}.jsonl`));
@@ -84,12 +84,12 @@ describe('claudeArgs', () => {
 
 describe('a live session, replayed', () => {
   afterEach(() => {
-    delete process.env.TASKCUE_CANVAS_CLAUDE_BIN;
+    delete process.env.TASKCUE_CLAUDE_BIN;
     delete process.env.REPLAY_FIXTURE;
   });
 
   it('streams the turn, raises the approval, and finishes once it is answered', async () => {
-    process.env.TASKCUE_CANVAS_CLAUDE_BIN = join(here, 'fake', 'replay.mjs');
+    process.env.TASKCUE_CLAUDE_BIN = join(here, 'fake', 'replay.mjs');
     process.env.REPLAY_FIXTURE = fixture('claude-stream.jsonl');
     // The capture ran in /private/tmp/ay-cap-claude (macOS's name for /tmp); this folder exists on any machine.
     const liveCwd = '/tmp/ay-cap-claude';

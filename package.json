@@ -1,5 +1,5 @@
 {
-  "name": "taskcue-canvas",
+  "name": "taskcue",
   "version": "0.1.0",
   "description": "A visual canvas for the coding agents already on your computer: Claude Code and Codex sessions side by side, on one board.",
   "license": "AGPL-3.0-only",
@@ -7,7 +7,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/TomMaxon/taskcue-canvas.git"
+    "url": "https://github.com/taskcue/taskcue.git"
   },
   "engines": {
     "node": ">=22"
