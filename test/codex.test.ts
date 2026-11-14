@@ -1,6 +1,6 @@
 // Codex's adapter, against app-server output captured from the real binary (codex-cli 0.167).
 
-import { readFileSync } from 'node:fs';
+import { mkdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -53,6 +53,7 @@ describe('a live session, replayed', () => {
   it('starts a thread, streams the turn, and raises both approvals', async () => {
     process.env.AGENTYARD_CODEX_BIN = join(here, 'fake', 'replay.mjs');
     process.env.REPLAY_FIXTURE = FIXTURE;
+    mkdirSync(CWD, { recursive: true });
     const items = new Map<string, Item>();
     const approvals: string[] = [];
     let nativeId = '';

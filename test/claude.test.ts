@@ -91,6 +91,9 @@ describe('a live session, replayed', () => {
   it('streams the turn, raises the approval, and finishes once it is answered', async () => {
     process.env.AGENTYARD_CLAUDE_BIN = join(here, 'fake', 'replay.mjs');
     process.env.REPLAY_FIXTURE = fixture('claude-stream.jsonl');
+    // The capture ran in /private/tmp/ay-cap-claude (macOS's name for /tmp); this folder exists on any machine.
+    const liveCwd = '/tmp/ay-cap-claude';
+    mkdirSync(liveCwd, { recursive: true });
     const items = new Map<string, Item>();
     const approvals: { id: string; title: string }[] = [];
     let idle!: () => void;
@@ -112,7 +115,7 @@ describe('a live session, replayed', () => {
       approvalGone: () => undefined,
       exited: () => undefined,
     };
-    const live = await claude.start({ cwd: CWD, permission: 'ask' }, sink);
+    const live = await claude.start({ cwd: liveCwd, permission: 'ask' }, sink);
     await live.send('Create hello.txt and run ls');
     await finished;
     live.stop();

@@ -3,6 +3,7 @@
 // record of a conversation; Agentyard only keeps what it needs to draw the board.
 
 import { randomUUID } from 'node:crypto';
+import { existsSync } from 'node:fs';
 import { EventEmitter } from 'node:events';
 import type { AgentId, Approval, ApprovalDecision, Item, PermissionMode, ServerEvent, SessionSummary, StartRequest } from '../shared/types.ts';
 import { adapter, adapters } from './agents/index.ts';
@@ -142,6 +143,7 @@ export class Sessions extends EventEmitter {
     const s = this.meta.get(id)!;
     const sink = this.sink(id);
     try {
+      if (!existsSync(s.cwd)) throw new Error(`The folder ${s.cwd} no longer exists, so this session can't run there.`);
       const live = await adapter(s.agent).start({ cwd: s.cwd, permission: permission ?? s.permission, model: s.model, resumeId }, sink);
       this.live.set(id, live);
       this.update(id, { live: true, state: 'idle', ...(permission ? { permission } : {}) });
