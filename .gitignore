@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.agentyard/
+*.log
+.DS_Store
