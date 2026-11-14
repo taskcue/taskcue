@@ -1,4 +1,4 @@
-// Claude Code's messages → Agentyard's items. The same messages arrive two ways: live on the
+// Claude Code's messages → TaskCue's items. The same messages arrive two ways: live on the
 // stream-json channel, and later in the session's transcript file. Both carry the same `uuid` and
 // tool_use ids, so an item read from history and the same item seen live share an id.
 

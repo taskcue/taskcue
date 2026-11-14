@@ -5,7 +5,7 @@ import { refuse } from '../server/guard.ts';
 const o = { port: 4880, token: 'a'.repeat(48) };
 
 function req(headers: Record<string, string>, method = 'GET', url = '/api/agents'): IncomingMessage {
-  return { headers: { host: '127.0.0.1:4880', 'x-agentyard-token': o.token, ...headers }, method, url } as unknown as IncomingMessage;
+  return { headers: { host: '127.0.0.1:4880', 'x-taskcue-token': o.token, ...headers }, method, url } as unknown as IncomingMessage;
 }
 
 describe('guard', () => {
@@ -29,8 +29,8 @@ describe('guard', () => {
   });
 
   it('refuses a missing or wrong token', () => {
-    expect(refuse(req({ 'x-agentyard-token': '' }), o)).toMatch(/token/);
-    expect(refuse(req({ 'x-agentyard-token': 'b'.repeat(48) }), o)).toMatch(/token/);
+    expect(refuse(req({ 'x-taskcue-token': '' }), o)).toMatch(/token/);
+    expect(refuse(req({ 'x-taskcue-token': 'b'.repeat(48) }), o)).toMatch(/token/);
     expect(refuse({ ...req({}), headers: { host: '127.0.0.1:4880' }, url: `/api/events?token=${o.token}` } as unknown as IncomingMessage, o)).toBeNull();
   });
 });

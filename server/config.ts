@@ -1,14 +1,14 @@
-// Agentyard's own state: a folder of small JSON files, never shared with the agents.
-//   AGENTYARD_DATA_DIR (default ~/.agentyard): settings.json, sessions.json, token
-//   AGENTYARD_PORT (default 4880)
+// TaskCue's own state: a folder of small JSON files, never shared with the agents.
+//   TASKCUE_CANVAS_DATA_DIR (default ~/.taskcue-canvas): settings.json, sessions.json, token
+//   TASKCUE_CANVAS_PORT (default 4880)
 
 import { randomBytes } from 'node:crypto';
 import { chmodSync, existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
 
-export const dataDir = process.env.AGENTYARD_DATA_DIR || join(homedir(), '.agentyard');
-export const port = Number(process.env.AGENTYARD_PORT || 4880);
+export const dataDir = process.env.TASKCUE_CANVAS_DATA_DIR || join(homedir(), '.taskcue-canvas');
+export const port = Number(process.env.TASKCUE_CANVAS_PORT || 4880);
 
 mkdirSync(dataDir, { recursive: true, mode: 0o700 });
 
@@ -29,7 +29,7 @@ export function writeJson(name: string, value: unknown): void {
 }
 
 /**
- * The secret every API call carries. Agentyard can run agents that run shell commands, so other
+ * The secret every API call carries. TaskCue can run agents that run shell commands, so other
  * programs and web pages on this computer must not be able to drive it: the guard checks this
  * token on top of the Host, Origin and Fetch-Metadata checks (server/guard.ts).
  */

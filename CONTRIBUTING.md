@@ -18,7 +18,7 @@ your OS, and what you saw; the server's terminal output helps.
 
 ## Ground rules for the code
 
-- Agents run as their own unmodified programs, with the user's own sign-in. Agentyard never reads, stores or forwards
+- Agents run as their own unmodified programs, with the user's own sign-in. TaskCue never reads, stores or forwards
   credentials.
 - The server stays local: don't widen the checks in `server/guard.ts`.
 - Nothing outside `server/agents/<agent>/` knows an agent's formats.

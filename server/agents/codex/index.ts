@@ -1,6 +1,6 @@
 // OpenAI's Codex, driven through `codex app-server` (JSON-RPC over stdio): the same binary,
 // ChatGPT or API-key sign-in, config.toml, AGENTS.md and MCP servers as the Codex CLI.
-// Agentyard never reads Codex's credentials.
+// TaskCue never reads Codex's credentials.
 //
 // Protocol (codex-cli 0.167, captured in test/fixtures/codex-app-server.jsonl):
 //   initialize → initialized → thread/start | thread/resume → turn/start (turn/steer while one runs)
@@ -25,7 +25,7 @@ const POLICIES: Record<PermissionMode, { approvalPolicy: string; sandbox: string
 
 export function codexBinary(): string | null {
   return findBinary([
-    process.env.AGENTYARD_CODEX_BIN,
+    process.env.TASKCUE_CANVAS_CODEX_BIN,
     'codex',
     // The ChatGPT desktop app for macOS ships the Codex CLI inside it.
     '/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex',

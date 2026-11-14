@@ -7,7 +7,7 @@ import { delimiter, join } from 'node:path';
 import type { Readable } from 'node:stream';
 
 /**
- * Variables a parent agent session sets for its own children. When Agentyard is started from
+ * Variables a parent agent session sets for its own children. When TaskCue is started from
  * inside a Claude Code session (a terminal tab, an editor panel, a tool call), passing them on
  * would make every session it starts believe it is a child of that one.
  */
@@ -29,9 +29,9 @@ const PARENT_SESSION_VARS = [
   'CODEX_SANDBOX_NETWORK_DISABLED',
 ];
 
-/** Agentyard's own settings, which belong to Agentyard and not to the projects its sessions work in. */
+/** TaskCue's own settings, which belong to TaskCue and not to the projects its sessions work in. */
 const OWN_VARS = ['PORT', 'NODE_ENV', 'ELECTRON_RUN_AS_NODE'];
-const OWN_PREFIX = 'AGENTYARD_';
+const OWN_PREFIX = 'TASKCUE_CANVAS_';
 
 export function childEnv(base: NodeJS.ProcessEnv = process.env): NodeJS.ProcessEnv {
   const env = { ...base };

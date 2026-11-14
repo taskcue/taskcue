@@ -3,7 +3,7 @@
 
 import type { AgentInfo, ApprovalDecision, Item, PermissionMode, ServerEvent, SessionSummary, StartRequest } from '../shared/types.ts';
 
-const KEY = 'agentyard:token';
+const KEY = 'taskcue-canvas:token';
 
 function readToken(): string | null {
   const hash = new URLSearchParams(location.hash.slice(1));
@@ -27,7 +27,7 @@ export class ApiError extends Error {
 async function call<T>(method: string, path: string, body?: unknown): Promise<T> {
   const res = await fetch(path, {
     method,
-    headers: { 'x-agentyard-token': token ?? '', ...(body !== undefined ? { 'content-type': 'application/json' } : {}) },
+    headers: { 'x-taskcue-token': token ?? '', ...(body !== undefined ? { 'content-type': 'application/json' } : {}) },
     body: body !== undefined ? JSON.stringify(body) : undefined,
   });
   const data = await res.json().catch(() => ({}));

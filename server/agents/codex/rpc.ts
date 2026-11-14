@@ -57,7 +57,7 @@ export class CodexRpc {
 
   /** The handshake every client makes before anything else. */
   async initialize(version: string): Promise<void> {
-    await this.request('initialize', { clientInfo: { name: 'agentyard', title: 'Agentyard', version }, capabilities: null });
+    await this.request('initialize', { clientInfo: { name: 'taskcue-canvas', title: 'TaskCue', version }, capabilities: null });
     this.notify('initialized');
   }
 
@@ -81,7 +81,7 @@ export class CodexRpc {
     if (m.id !== undefined && m.method) {
       try {
         const result = await this.handlers.request?.(m.method, m.params, m.id);
-        if (result === undefined) throw new Error(`Agentyard does not handle ${m.method}`);
+        if (result === undefined) throw new Error(`TaskCue does not handle ${m.method}`);
         this.write({ id: m.id, result });
       } catch (err) {
         this.write({ id: m.id, error: { code: -32601, message: (err as Error).message } });

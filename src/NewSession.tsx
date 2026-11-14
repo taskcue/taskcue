@@ -7,7 +7,7 @@ import { Close } from './bits.tsx';
 import { shortPath } from './format.ts';
 import { loadAgents, useStore } from './store.ts';
 
-const LAST = 'agentyard:last-start';
+const LAST = 'taskcue-canvas:last-start';
 
 interface Last {
   agent: AgentId;
@@ -73,8 +73,8 @@ export function NewSession({ cwd: initialCwd, onClose, onStarted }: { cwd: strin
 
         <label className="field">
           <span>Project folder</span>
-          <input list="agentyard-projects" value={cwd} onChange={(e) => setCwd(e.target.value)} placeholder="~/code/my-app" />
-          <datalist id="agentyard-projects">
+          <input list="taskcue-projects" value={cwd} onChange={(e) => setCwd(e.target.value)} placeholder="~/code/my-app" />
+          <datalist id="taskcue-projects">
             {projects.map((p) => (
               <option key={p.path} value={p.path}>
                 {shortPath(p.path)}

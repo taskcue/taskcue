@@ -1,4 +1,4 @@
-// Agentyard's server: the API, the event stream, and the page. No framework; Node's own http.
+// TaskCue's server: the API, the event stream, and the page. No framework; Node's own http.
 
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
@@ -218,7 +218,7 @@ async function main(): Promise<void> {
   }
 
   server.listen(port, '127.0.0.1', () => {
-    console.log(`\n  Agentyard is running.\n\n  Open: http://127.0.0.1:${port}/#token=${token}\n\n  State: ${dataDir}\n`);
+    console.log(`\n  TaskCue is running.\n\n  Open: http://127.0.0.1:${port}/#token=${token}\n\n  State: ${dataDir}\n`);
   });
 
   void sessions.refreshExternal(addedProjects());

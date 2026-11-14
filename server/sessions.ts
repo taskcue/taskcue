@@ -1,6 +1,6 @@
-// The sessions on the board: the ones Agentyard started (kept in sessions.json), and the recent
+// The sessions on the board: the ones TaskCue started (kept in sessions.json), and the recent
 // ones each agent keeps in its own history (found, not copied). An agent's own history is the
-// record of a conversation; Agentyard only keeps what it needs to draw the board.
+// record of a conversation; TaskCue only keeps what it needs to draw the board.
 
 import { randomUUID } from 'node:crypto';
 import { existsSync } from 'node:fs';
@@ -75,11 +75,11 @@ export class Sessions extends EventEmitter {
 
   /**
    * Reads each agent's recent history. Called at start and every half minute. Skipped with
-   * AGENTYARD_HISTORY=0. Sessions that ran inside a hidden folder (a path segment starting with
+   * TASKCUE_CANVAS_HISTORY=0. Sessions that ran inside a hidden folder (a path segment starting with
    * '.', where tools keep their own working copies) only show when that folder is an added project.
    */
   async refreshExternal(added: string[] = []): Promise<void> {
-    if (process.env.AGENTYARD_HISTORY === '0') return;
+    if (process.env.TASKCUE_CANVAS_HISTORY === '0') return;
     const found = new Map<string, SessionSummary>();
     for (const a of Object.values(adapters)) {
       let recent: Awaited<ReturnType<typeof a.recent>> = [];
@@ -225,7 +225,7 @@ export class Sessions extends EventEmitter {
     await live.send(text);
   }
 
-  /** Brings a conversation found in an agent's history onto Agentyard's own list, to continue it here. */
+  /** Brings a conversation found in an agent's history onto TaskCue's own list, to continue it here. */
   private adopt(id: string): void {
     const s = this.external.get(id);
     if (!s) throw new Error('No such session');

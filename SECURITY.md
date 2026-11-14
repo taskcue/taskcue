@@ -1,6 +1,6 @@
 # Security
 
-Agentyard starts coding agents that can edit files and run commands, so we treat its API like a shell. How it is
+TaskCue starts coding agents that can edit files and run commands, so we treat its API like a shell. How it is
 protected is described in [docs/architecture.md](docs/architecture.md#security).
 
 ## Reporting a vulnerability

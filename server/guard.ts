@@ -1,4 +1,4 @@
-// Who may call the API. Agentyard drives agents that edit files and run commands, so its API is
+// Who may call the API. TaskCue drives agents that edit files and run commands, so its API is
 // treated like a shell: only this computer's own browser tab, holding the token, may use it.
 //
 //   - The server listens on 127.0.0.1 only.
@@ -6,7 +6,7 @@
 //   - Origin, when sent, must be this server (stops other websites).
 //   - Sec-Fetch-Site, when sent, must be same-origin or none (stops <img>/<form> requests from other sites).
 //   - Writes must be JSON (forces a CORS preflight no other site can pass).
-//   - Every /api call carries the token from ~/.agentyard/token (stops other programs and users on this computer).
+//   - Every /api call carries the token from ~/.taskcue-canvas/token (stops other programs and users on this computer).
 
 import { timingSafeEqual } from 'node:crypto';
 import type { IncomingMessage } from 'node:http';
@@ -41,7 +41,7 @@ export function refuse(req: IncomingMessage, o: GuardOptions): string | null {
   }
 
   const url = new URL(req.url ?? '/', `http://${host}`);
-  const given = String(req.headers['x-agentyard-token'] ?? url.searchParams.get('token') ?? '');
+  const given = String(req.headers['x-taskcue-token'] ?? url.searchParams.get('token') ?? '');
   if (!given || !sameToken(given, o.token)) return 'Missing or wrong token';
   return null;
 }

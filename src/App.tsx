@@ -10,11 +10,11 @@ import { apply, loadAgents, setConnected, useStore } from './store.ts';
 function NoToken() {
   return (
     <div className="gate">
-      <h1>Agentyard</h1>
-      <p>Open Agentyard from the address it printed when it started, the one that ends in <code>#token=…</code>.</p>
+      <h1>TaskCue</h1>
+      <p>Open TaskCue from the address it printed when it started, the one that ends in <code>#token=…</code>.</p>
       <p className="muted">
         The token keeps other websites and programs on this computer from driving your agents. It is in
-        <code> ~/.agentyard/token</code>.
+        <code> ~/.taskcue-canvas/token</code>.
       </p>
     </div>
   );
@@ -133,7 +133,7 @@ export function App() {
       <header className="topbar">
         <div className="brand">
           <img src="/icon.svg" alt="" width={22} height={22} />
-          Agentyard
+          TaskCue
         </div>
         <div className="crumb">{focused ? shortPath(focused.path) : 'All projects'}</div>
         <span className="spacer" />
